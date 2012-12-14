@@ -1,0 +1,13 @@
+client_id : 2d6c74c7d3ef427b90c9806eff8dc33e
+client_secret: b67ecb7c3d154c47907e03ae2f862976 
+website_url: http://localhost:4567/
+redirect_uri: http://localhost:4567/oauth/callback
+code: 
+
+curl \-F 'client_id=c616aa8bdbce4b23a0d12d1bbd869a06' \
+-F 'client_secret=610d70c655504cd384884e29bdf7e982' \
+-F 'grant_type=authorization_code' \
+-F 'redirect_uri=http://localhost:4567/' \
+-F 'code=3d8b951e7f3348f394db73291dd800a0' \https://api.instagram.com/oauth/access_token
+
+{"access_token":"4807036.c616aa8.6a71c30b78c649e4af04448cbbd82236","user":{"username":"nekogeruge","bio":"","website":"http:\/\/nekogeruge987.tumblr.com\/","profile_picture":"http:\/\/images.instagram.com\/profiles\/profile_4807036_75sq_1307618416.jpg","full_name":"","id":"4807036"}}%
