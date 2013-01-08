@@ -1,9 +1,8 @@
 require 'rubygems'
 require 'instagram'
 require 'sequel'
-require 'mysql2'
 
-DB = Sequel.connect('mysql2://root:naruhaya@localhost/sinaapp')
+DB = Sequel.connect('sqlite://sinaapp.db')
 pic = DB[:pictures]
 
 Instagram.configure do |config|

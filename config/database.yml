@@ -1,9 +1,0 @@
-development:
-  adapter: mysql2
-  encoding: utf8
-  database: sinaapp
-  pool: 5
-  username: root
-  password: naruhaya
-  socket: /tmp/mysql.sock
-
