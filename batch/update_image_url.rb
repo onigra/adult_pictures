@@ -11,9 +11,9 @@ Instagram.configure do |config|
 end
 
 target = DB[:pictures]
-pics = Instagram.media_popular
+update_pictures = Instagram.media_popular
 
-pics.each{|item|
+update_pictures.each{|item|
   target_id = target.order(:updated_at.asc).limit(1).all[0][:id]
 
   target.where('id = ?', target_id)
