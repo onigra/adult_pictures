@@ -2,20 +2,21 @@
 <html lang="ja">
   <head>
     <title>Instaapp</title>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
-    <link href="/lightbox/css/lightbox.css" rel="stylesheet" />
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&v1' rel='stylesheet' />
-    <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' />
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="/Grid-A-Licious/jquery.grid-a-licious.js"></script>
-    <script src="/lightbox/js/lightbox.js"></script>
+<!--
+    <link href="/stalactite/c/style.css" rel="stylesheet" />
+    <link href="/stalactite/c/gs.css" rel="stylesheet" />
+--!>
+    <link href="/css/978_grid.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script src="/stalactite/j/jquery.stalactite.min.js"></script>
   </head>
 
   <body style="background:#000;">
-    <div class="container">
+    <div class="hoge">
       <div class="header">
         <a href="http://evening-sea-7671.herokuapp.com/"><span>&laquo; Instapp: </span>©Onigra</a>
         <span class="right_ab">
@@ -23,7 +24,7 @@
         </span>
       </div>
 
-      <div id="device">
+      <div class="container clearfix">
         <% @pictures.each do |i| %>
           <%= i %>
         <% end %>
@@ -32,9 +33,15 @@
 
     <script type="text/javascript">
       $(function() {
-        $("#device").gridalicious({
-          gutter: 20,
-          animate: true
+        $("#foo").stalactite({
+          duration: 350                        // アニメーションスピード
+         // easing: 'swing'                      // Easingメソッド
+          //cssPrefix: '.stalactite',             // class名
+          //cssPrep: true,                        // 子要素のcssの変更の有無
+          //fluid: true,                          // ウィンドウサイズでfluidさせるかどうか
+          //loader: '<img />',                    // ローディング画像のパス
+          //styles: {}                            // スタイル。位置とか
+          //complete: function(v) { return v; }  // コールバック関数
         });
       });
     </script>

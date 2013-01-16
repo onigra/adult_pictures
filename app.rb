@@ -14,7 +14,7 @@ get "/" do
   
   select_num_list.each {|key|
     DB[:pictures].filter(:id => key).map {|item|
-      @pictures << "<div class='item'><img src='#{item[:url]}'></img></div>"
+      @pictures << "<div class='grid3'><img src='#{item[:url]}' width='138' height='138'></img></div>"
     }
   }
 

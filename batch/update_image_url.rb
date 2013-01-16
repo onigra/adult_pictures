@@ -10,12 +10,13 @@ Instagram.configure do |config|
   config.client_secret = YML['info']['client_secret'] 
 end
 
+target = DB[:pictures]
 pics = Instagram.media_popular
 
 pics.each{|item|
-  target_id = DB[:pictures].order(:updated_at.asc).limit(1).all[0][:id]
-  
-  DB[:pictures].where('id = ?', target_id)
-               .update(:url => item.images.standard_resolution.url, :updated_at => Time.now)
+  target_id = target.order(:updated_at.asc).limit(1).all[0][:id]
+
+  target.where('id = ?', target_id)
+        .update(:url => item.images.standard_resolution.url, :updated_at => Time.now)
 }
 
