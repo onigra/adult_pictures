@@ -4,4 +4,5 @@ gem 'sequel'
 gem 'instagram'
 gem 'rake'
 gem 'heroku'
+gem 'httparty'
 
