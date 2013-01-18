@@ -11,6 +11,7 @@
     
     <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="/Grid-A-Licious/jquery.grid-a-licious.js"></script>
+    <script src="/colorbox/src/jquery.colorbox.js"></script>
   </head>
 
   <body style="background:#000;">
@@ -31,6 +32,8 @@
           gutter: 20,
           animate: true
         });
+
+        $('a.gallery').colorbox({rel:'gal', transition:"fade"});
       });
     </script>
 
