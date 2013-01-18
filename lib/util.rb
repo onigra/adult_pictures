@@ -10,13 +10,21 @@ class Utils
   def self.create_uniq_num_list(nums_list)
     uniq_nums = Array.new
     
-    (0..49).each {|i|
+    (0..47).each {|i|
       uniq_nums << nums_list.sample
       nums_list.reject! {|x| x == uniq_nums[i] }
     }
   
     return uniq_nums
   end
-
+  
+  def self.random_size
+    list = [
+      196,
+      96,
+    ]
+    
+    return list
+  end
 end
 

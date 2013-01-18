@@ -10,11 +10,13 @@ DB = Sequel.connect('sqlite://db/sinaapp.db')
 
 get "/" do
   @pictures = Array.new
-  select_num_list = Utils.create_uniq_num_list((1..304).to_a)
+  select_num_list = Utils.create_uniq_num_list((1..509).to_a)
+  foo = Utils.random_size
   
   select_num_list.each {|key|
+    size = foo.sample
     DB[:pictures].filter(:id => key).map {|item|
-      @pictures << "<div class='grid3'><img src='#{item[:url]}' width='138' height='138'></img></div>"
+      @pictures << "<div class='item'><img src='#{item[:url]}' width=196 height=#{size} ></img></div>"
     }
   }
 
