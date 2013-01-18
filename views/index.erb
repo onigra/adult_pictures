@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
-    <link href="/isotope/css/style.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
     <link href="/colorbox/src/colorbox.css" rel="stylesheet" />
     
     <script src="http://code.jquery.com/jquery.min.js"></script>
@@ -16,9 +16,9 @@
   </head>
 
   <body style="background:#000;">
-    <div id="hoge">
-      <a href="http://evening-sea-7671.herokuapp.com/" target="_blank"><span>&laquo; Instapp: </span></a>
-      <a href="https://github.com/onigra/"><strong>©Onigra</strong></a>
+    <div>
+      <a href="http://evening-sea-7671.herokuapp.com/"><span>&laquo; Instapp: </span></a>
+      <a href="https://github.com/onigra/" target="_blank"><strong>©Onigra</strong></a>
 
       <div id="device" class="container">
         <% @pictures.each do |i| %>
@@ -29,12 +29,17 @@
 
     <script type="text/javascript">
       $(function() {
+
         $("#device").gridalicious({
           gutter: 20,
           animate: true
         });
 
-        $('a.gallery').colorbox({rel:'gal', transition:"fade"});
+        $('a.gallery').colorbox({
+          rel:'gal',
+          transition:"fade"
+        });
+  
       });
     </script>
 
