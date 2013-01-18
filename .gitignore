@@ -1,2 +1,4 @@
 .bundle
 vendor
+batch/pic.sh
+batch/import.rb
