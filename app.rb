@@ -15,7 +15,7 @@ get "/" do
   
   select_num_list.each {|key|
     size = foo.sample
-    DB[:adult_pictures].filter(:id => key).map {|item|
+    DB[:pictures].filter(:id => key).map {|item|
       @pictures << "<div class='item'><img src='#{item[:url]}' width=196 height=#{size} ></img></div>"
     }
   }
