@@ -2,3 +2,4 @@
 vendor
 batch/pic.sh
 batch/import.rb
+.DS_Store
