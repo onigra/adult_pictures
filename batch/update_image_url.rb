@@ -1,23 +1,17 @@
-require 'instagram'
 require 'sequel'
-require 'yaml'
+require_relative '../lib/api_connect.rb'
 
-YML = YAML.load_file "../config/instagram.yml"
+instance = ApiClient.new("../config/config.yml")
+client = instance.instagram_init
+
 DB = Sequel.connect('sqlite://../db/sinaapp.db')
-
-Instagram.configure do |config|
-  config.client_id = YML['info']['client_id'] 
-  config.client_secret = YML['info']['client_secret'] 
-end
-
 target = DB[:pictures]
-update_pictures = Instagram.media_popular
-
 # リンク切れで削除したレコードを取得
 deleted_pictures = DB["select * from pictures where deleted_at is not null"].all
 
-update_pictures.each{|item|
-
+update_pictures = client.media_popular
+update_pictures.map {|item|
+  
   # 削除したレコードが存在すれば、削除したレコードから更新する。
   # 削除したレコードが無ければ、更新日が古いものから更新していく。
   if deleted_pictures.empty? || deleted_pictures.nil?

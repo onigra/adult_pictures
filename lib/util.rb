@@ -1,19 +1,25 @@
-# coding: utf-8
+require 'sequel'
 
 class Utils
 
-  # -------------------------------------------------
-  #  1から500までの数値の中で、50個のユニークな数値を
-  #  ランダムで選択して配列にして返すメソッド
-  # -------------------------------------------------
+  # ---------------------------------------------------
+  #  削除されてないidの中から、47個のユニークな数値を
+  #  ランダムで選択して配列にして返すメソッド。
+  #  47個なのはcontainerのサイズ的にちょうどいいから。
+  # ---------------------------------------------------
   def self.create_uniq_num_list
+    db = Sequel.connect('sqlite://db/sinaapp.db')
+    deleted_list = db["select * from adult_pictures where deleted_at is null"].all
+
+    num_list = Array.new
+    deleted_list.each {|item|
+      num_list << item[:id]
+    }
+
     uniq_nums = Array.new
-
     (0..47).each {|i|
-      nums_list = (1..500).to_a
-
-      uniq_nums << nums_list.sample
-      nums_list.reject! {|x| x == uniq_nums[i] }
+      uniq_nums << num_list.sample
+      num_list.reject! {|x| x == uniq_nums[i]}
     }
   
     return uniq_nums

@@ -1,5 +1,7 @@
 .bundle
 vendor
-batch/pic.sh
-batch/import.rb
+config
+db
 .DS_Store
+samples/auth.rb
+
