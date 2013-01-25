@@ -5,4 +5,5 @@ gem 'instagram'
 gem 'rake'
 gem 'heroku'
 gem 'httparty'
+gem 'tumblr_client'
 
